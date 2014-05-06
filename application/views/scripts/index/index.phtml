@@ -1,0 +1,51 @@
+<h2>HTML AJAX with Jquery</h2>
+
+<label for="msg">notice</label>
+<input type="text" name="msg" id="msg"/>
+<a href="#" id="getNotice" >get notice</a>
+<a href="#" id="clear" >clear notice</a>
+<div id ="notices" >
+    
+</div>
+
+<script type="text/javascript">
+    $(function()
+    {
+        $("#getNotice").click(function(){
+            getAjaxNotice(0);
+            return false;
+        });
+        
+        $("#clear").click(function(){
+            getAjaxNotice(1);
+            return false;
+        });
+    });
+    function getAjaxNotice(clearSession)
+    {
+        $.post('/myZC/public/index.php/async/getnotice', {
+                "msg"   : $("#msg").val(),
+                "clear" : clearSession
+            }, 
+                function(response)
+                {
+                    var notice = $(response);
+                    $("#notices").prepend(notice.hide().fadeIn());
+                    
+                    setTimeout(function(emt)
+                    {
+                        emt.fadeOut("slow", function()
+                        {
+                            $(this).remove();
+                        })
+                    }, 1500, notice); 
+                });
+                
+                
+           
+    }
+</script>    
+<?php 
+    echo $this->signup;
+   
+?>

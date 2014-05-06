@@ -1,0 +1,27 @@
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Zend Framework Quickstart Application</title>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+ 
+	  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+  <?php echo $this->headLink()->appendStylesheet('/css/global.css') ?>
+    <script type="text/javascript" src="<?php echo $this->baseUrl();?>/js/jqueryDatePick.js"></script>
+    <script type="text/javascript" src="<?php echo $this->baseUrl();?>/js/jquery-ui-1-8.js"></script>
+  <?php //echo $this->jQuery();?>
+  
+</head>
+<body>
+    
+<?php echo $this->layout()->content; ?>
+<script>
+             $(function() {
+                $("#datepicker").datepicker();
+                $("#format").change(function() { $('#datepicker').datepicker('option', {dateFormat: $(this).val()}); });
+
+            });
+   </script>
+    </body>
+</html>
