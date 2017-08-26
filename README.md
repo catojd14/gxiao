@@ -3,4 +3,4 @@ gxiao
 
 Github repo
 
-It is created on May 9, 2014. My first project is myZC, a project with zend framework. 
+For nrigroup challenge problem, I test in localhost and mysql, and everything is working.  
