@@ -13,7 +13,7 @@
 class AboutController extends Zend_Controller_Action {
     //put your code here
     public function aboutAction(){
-        
+         
     }
             
 }
